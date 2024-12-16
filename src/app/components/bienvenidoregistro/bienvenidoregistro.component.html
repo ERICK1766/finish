@@ -1,0 +1,56 @@
+<div class="bienvenidoregistro-container">
+  <div class="fondo">
+    <div class="fondooscuro">
+      <header>
+        <nav>
+          <!-- Logotipo y nombre -->
+          <div class="halloween"></div>
+          <ul class="logo-nombre">
+            <span>ESPACIOS</span>
+            <span>BOLIVIA</span>
+          </ul>
+          <!-- Menú principal centrado -->
+          <ul class="menu">
+            <a href="/bienvenidopresidente">INICIO</a>
+            <a href="/mapa">MAPA</a>
+          </ul>
+          <!-- Inicio de sesión y botón a la derecha -->
+          <div class="right-section">
+            <ul class="extra-menu">
+              <div *ngIf="user" class="user-info">
+                <span>{{ user.name }}</span>
+                <a href="#" class="boton-usuario">
+                  <img src="/assets/usuario.png" class="icono-usuario" alt="Usuario">
+                </a>
+              </div>              
+            </ul>
+            <div class="halloween"></div>
+          </div>
+        </nav>
+      </header>
+    </div>
+    <div class="bienvenido">
+      <h1>BIENVENIDO, A ESPACIOS BOLIVIA</h1>
+      <p></p>
+      <div id="events-container">
+        <div *ngIf="eventos.length > 0">
+          <div *ngFor="let evento of eventos" class="evento-container">
+            <h3>{{ evento.nombre }}</h3>
+            <p><strong>Fecha:</strong> {{ evento.fecha }}</p>
+            <p><strong>Hora:</strong> {{ evento.hora_inicio }}:00 - {{ evento.hora_fin }}:00</p>
+            <p><strong>Capacidad:</strong> {{ evento.capacidad_personas }} personas</p>
+            <p><strong>Tipo:</strong> {{ evento.tipo }}</p>
+            <p><strong>Descripción:</strong> {{ evento.descripcion }}</p>
+            <p [class]="evento.estado === 'pendiente' ? 'estado-pendiente' : 'estado-confirmado'">
+              <strong>Estado:</strong> {{ evento.estado }}
+            </p>
+          </div>
+        </div>        
+      </div>
+      <p>Haz click en 'Añadir Evento' para reservar un espacio a utilizar por un evento.</p>
+      <div class="button-container">
+        <button id="add-event-button" class="add-event-button" (click)="irARegistroEvento()">Añadir Evento</button>
+      </div>
+    </div>
+  </div>
+</div>

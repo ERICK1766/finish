@@ -1,0 +1,78 @@
+<div class="pagoreserva-container">
+    <header>
+      <nav>
+        <!-- Logotipo y nombre -->
+        <div class="halloween"></div>
+        <ul class="logo-nombre">
+          <span>ESPACIOS</span>
+          <span>BOLIVIA</span>
+        </ul>
+        <!-- Menú principal centrado -->
+        <ul class="menu">
+          <li><a href="demostrations.html">INICIO</a></li>
+          <li><a href="demostrations.html">CALENDARIO</a></li>
+        </ul>
+        <!-- Inicio de sesión y botón a la derecha -->
+        <div class="right-section">
+          <ul class="extra-menu">
+            <li><a href="demostrations.html">NOMBRE DE USUARIO</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  
+    <section class="fondoN">
+      <section class="container">
+        <h1>PAGO PARA RESERVA</h1>
+        <form (submit)="mostrarExito($event)" class="formulario">
+          <div class="inputGroup">
+            <label for="numeroTarjeta">Número de la Tarjeta</label>
+            <input type="text" id="numeroTarjeta" placeholder="Escribe el número de la tarjeta" required />
+          </div>
+          <div class="inputGroup">
+            <label for="codigoTarjeta">Código de la Tarjeta</label>
+            <input
+              type="password"
+              id="codigoTarjeta"
+              placeholder="*********"
+              required
+            />
+            <button type="button" (click)="toggleVisibility()">Mostrar</button>
+          </div>
+          <div class="inputGroup">
+            <label for="fechaExpiracion">Fecha de Expiración</label>
+            <input type="text" id="fechaExpiracion" placeholder="00/00/0000" required />
+          </div>
+          <div class="inputGroup">
+            <label for="nombreTitular">Nombre del Titular</label>
+            <input type="text" id="nombreTitular" placeholder="Escribe el nombre" required />
+          </div>
+          <div class="inputGroup">
+            <label for="horaFinalizacion">Hora Finalización</label>
+            <input
+              type="text"
+              id="horaFinalizacion"
+              placeholder="Bs. 0000.00 (no modificable)"
+              required
+            />
+          </div>
+  
+          <p>
+            <strong>*IMPORTANTE:</strong> Una vez se haya realizado y validado el pago en ATC, se
+            le redirigirá nuevamente a nuestra página tras unos segundos.
+          </p>
+          <button type="submit">Finalizar Pago</button>
+          <img src="./assets/visaEnlace.png" alt="Visa" />
+        </form>
+      </section>
+    </section>
+  
+    <div id="modal-exito" class="modal" style="display: none;">
+      <div class="modal-content">
+        <h2>Pago Exitoso</h2>
+        <p>Su pago ha sido validado correctamente.</p>
+        <p>Redirigiendo a la página principal...</p>
+      </div>
+    </div>
+  </div>
+  
